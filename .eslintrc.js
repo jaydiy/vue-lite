@@ -14,7 +14,7 @@ module.exports = {
     'prettier', // eslint-config-prettier, 必须放在最后
   ],
   overrides: [],
-  ignorePatterns: ['.eslintrc.js', 'env.d.ts'],
+  ignorePatterns: ['.eslintrc.js', 'env.d.ts', 'README.md'],
   parser: 'vue-eslint-parser', // 解析 vue
   parserOptions: {
     ecmaVersion: 'latest', // 2020
@@ -29,7 +29,7 @@ module.exports = {
     '@typescript-eslint/indent': 0,
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-unused-vars': 'off',
+    // '@typescript-eslint/no-unused-vars': 'off',
     eqeqeq: [2, 'always'], // 要求使用 === 和 !==
     // "semi": [2, "never"],//语句强制分号结尾
     '@typescript-eslint/no-explicit-any': 'off', // FIXME

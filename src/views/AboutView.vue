@@ -2,6 +2,8 @@
   <div class="about">
     <h1>This is an about page</h1>
     <div class="box">use sass</div>
+    <svg-icon icon-name="all"></svg-icon>
+    <svg-icon icon-name="cert"></svg-icon>
     <div class="text-red">test UnoCSS</div>
   </div>
 </template>
