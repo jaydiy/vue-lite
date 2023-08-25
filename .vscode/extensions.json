@@ -1,3 +1,11 @@
+// extensions.json
 {
-  "recommendations": ["Vue.volar", "Vue.vscode-typescript-vue-plugin"]
+  "recommendations": [
+    "editorconfig.editorconfig", // EditorConfig
+    "stylelint.vscode-stylelint",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin"
+  ]
 }
