@@ -1,0 +1,85 @@
+// colors
+$colors: (
+  'primary': #00e5ff,
+  'purple': #9e6fef,
+  'light-purple': #bfbdff,
+  'yellow': #fff701,
+  // 背景色
+  'bg1': #fff,
+  'bg2': lightgreen,
+);
+$base-font-size: 1rem;
+$font-sizes: (
+  xxs: 0.8,
+  // 8px
+  xs: 1,
+  // 10px
+  sm: 1.2,
+  // 12px
+  md: 1.4,
+  // 14px
+  lg: 1.6,
+  // 16px
+  xl: 2,
+);
+
+// delta
+$d-color-black: #11182b;
+$d-color-black2: #403a48;
+$d-color-white: #fff;
+$d-color-gray: #f6f6f7;
+$d-color-gray1: #d7d8d9;
+$d-color-gray2: #9b9ea0;
+$d-color-gray3: #f5f7fa; // 顶部导航
+$d-color-red: #e01933;
+$d-color-orange: #fca73a;
+$d-color-lred: #fcf6f1;
+$d-color-mdred: #eea2a4;
+$d-color-green: #419f24;
+$d-color-green: #419f24;
+$d-color-blue: #68a7ff;
+$d-fs-20: 2rem;
+$d-fs-16: 1.6rem;
+$d-fs-15: 1.5rem;
+$d-fs-14: 1.4rem;
+$d-fs-12: 1.2rem;
+$d-fs-11: 1.1rem;
+$d-fs-10: 1rem;
+$d-fs-9: 0.9rem;
+$d-fs-8: 0.8rem;
+$d-fs-7: 0.7rem;
+$d-fs-6: 0.6rem;
+$d-fs-5: 0.5rem;
+$d-fs-4: 0.4rem;
+$d-fs-3d5: 0.35rem;
+$d-fs-3: 0.3rem;
+
+// color
+$color-white: #fff;
+$color-black: #000;
+
+// color
+$color-2b3: #2b303c;
+$color-f6: #f6f6f6;
+$color-999: #999;
+$color-333: #333;
+$color-f44: #ff4e31;
+$color-ff9: #ff9715;
+$color-ffc: #ffcb4d;
+$color-c65: #c65959;
+$color-3da: #3da740;
+
+// MM
+$y-fs-15: 15px; // $d-fs4
+$y-fs-16: 16px; // $d-fs4
+$y-fs-18: 18px; // $d-fs4
+$y-fs-19: 19px; // $d-fs4
+$y-fs-20: 20px; // $d-fs4
+$y-fs-21d2: 21.2px; // $d-fs4
+$y-fs-22: 22px;
+$y-fs-25: 25px;
+$y-fs-29: 29px;
+$y-fs-40: 40px; // $d-fs4
+$y-fs-56: 56px;
+$y-fs-60: 60px;
+$y-fs-65: 65px;

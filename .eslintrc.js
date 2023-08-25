@@ -9,12 +9,12 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'standard-with-typescript',
     // 'airbnb-base',
-    // '@antfu',
+    '@antfu',
     'plugin:prettier/recommended', // eslint-plugin-prettier，即eslint使用pretter规则来格式化代码
     'prettier', // eslint-config-prettier, 必须放在最后
   ],
   overrides: [],
-  ignorePatterns: ['.eslintrc.js', 'vite.config.ts', 'env.d.ts'],
+  ignorePatterns: ['.eslintrc.js', 'env.d.ts'],
   parser: 'vue-eslint-parser', // 解析 vue
   parserOptions: {
     ecmaVersion: 'latest', // 2020
