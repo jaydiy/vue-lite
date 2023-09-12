@@ -10,7 +10,7 @@ module.exports = {
     'standard-with-typescript',
     // 'airbnb-base',
     '@antfu',
-    'plugin:prettier/recommended', // eslint-plugin-prettier，即eslint使用pretter规则来格式化代码
+    'plugin:prettier/recommended', // eslint-plugin-prettier，即 eslint 使用 pretter 规则来格式化代码
     'prettier', // eslint-config-prettier, 必须放在最后
   ],
   overrides: [],
@@ -34,5 +34,6 @@ module.exports = {
     // "semi": [2, "never"],//语句强制分号结尾
     '@typescript-eslint/no-explicit-any': 'off', // FIXME
     'vue/multi-word-component-names': 'off', // FIXME vue组件模板名称
+    'no-console': 'off', // 关闭 console 报错
   },
 }

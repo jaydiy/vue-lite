@@ -1,6 +1,8 @@
 @import './base.css';
 
-#app {
+/* 初始设置 start */
+
+/* #app {
   margin: 0 auto;
   padding: 2rem;
   max-width: 1280px;
@@ -31,4 +33,6 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
-}
+} */
+
+/* 初始设置 end  */

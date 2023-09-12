@@ -11,7 +11,10 @@
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "uno.config.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
+    "lib": ["ESNext", "DOM"], // Promise 报错
+    "module": "esnext", // 修改 commonjs -- esnext es2022
     "strictNullChecks": true,
-    "types": ["vite-plugin-svg-icons/client"]
+    "types": ["node", "vite/client", "vite-plugin-svg-icons/client"], // 环境变量不存在报错
+    "moduleResolution": "node" // 导入 vue vue-router 报错
   }
 }

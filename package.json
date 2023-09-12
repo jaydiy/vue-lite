@@ -17,7 +17,6 @@
     "svgo": "svgo -f src/icons/svg --config=src/utils/svgo.config.js"
   },
   "dependencies": {
-    "@unocss/reset": "^0.55.2",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
@@ -25,10 +24,13 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
     "@tsconfig/node18": "^18.2.0",
-    "@types/node": "^18.17.5",
+    "@types/node": "^18.17.15",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@unocss/preset-rem-to-px": "^0.55.7",
+    "@unocss/reset": "^0.55.7",
     "@vitejs/plugin-vue": "^4.3.1",
     "@vue/tsconfig": "^0.4.0",
+    "axios": "^1.5.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",

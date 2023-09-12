@@ -1,10 +1,20 @@
+<script lang="ts" setup>
+import { getCurrentInstance } from 'vue'
+
+const { $api } = getCurrentInstance()?.appContext.config.globalProperties
+async function fetchData() {
+  const res = await $api.demo.findPageWrap.post()
+  console.log('🚀 ~ file: AboutView.vue:7 ~ fetchData ~ res:', res)
+}
+</script>
+
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1 class="text-red md:text-emerald">This is an about page</h1>
     <div class="box">use sass</div>
     <svg-icon icon-name="all"></svg-icon>
     <svg-icon icon-name="cert"></svg-icon>
-    <div class="text-red">test UnoCSS</div>
+    <div class="text-red" @click="fetchData()">test UnoCSS</div>
   </div>
 </template>
 

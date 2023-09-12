@@ -2,6 +2,7 @@
 
 这是一个项目模板，集成了一些基础配置和框架；包括代码质量检查、代码格式化、基础功能等等
 
+
 ## 初始化项目
 
 [Vue 文档](https://cn.vuejs.org/)
@@ -15,6 +16,8 @@
    npm install 
    npm run dev
    ```
+
+   推荐的 `IDE` 配置是 [Visual Studio Code](https://code.visualstudio.com/) + [Volar 扩展](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
 2. 代码提交规范
 
@@ -111,6 +114,51 @@
      }
      ```
 
+4. TS 配置
+
+   - `tsconfig.json`
+
+     ```json
+     {
+       "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "uno.config.ts"],
+       "exclude": ["node_modules"],
+       "compilerOptions": {
+         "lib": ["es2015"], // Promise 报错
+         "module": "esnext", // 修改 commonjs -- esnext es2022
+         "strictNullChecks": true,
+         "types": ["node", "vite/client", "vite-plugin-svg-icons/client"], // 环境变量不存在报错
+         "moduleResolution": "node" // 导入 vue vue-router 报错
+       }
+     }
+     ```
+
+   - `tsconfig.app.json`
+
+     ```json
+     {
+       // "extends": "@tsconfig/node18/tsconfig.json",
+       "extends": "./tsconfig.json",
+       "include": [
+         "vite.config.*",
+         "vitest.config.*",
+         "cypress.config.*",
+         "nightwatch.conf.*",
+         "playwright.config.*"
+       ],
+       "compilerOptions": {
+         "composite": true,
+         "module": "ESNext",
+         "moduleResolution": "Bundler",
+         "types": ["node"]
+       }
+     }
+     ```
+
+5. TODO
+
+   - 
+
+
 ## 编码规范
 
 代码检查和格式化
@@ -129,7 +177,7 @@
 
    项目右键选择 `Generate .editorconfig` ，快速生成 `.editorconfig` 文件
 
-   要和 Prettier ESlint 一致，不能冲突 💥
+   要和 `Prettier`、` ESlint` 一致，不能冲突 💥
 
    ```text
    # https://editorconfig.org
@@ -186,13 +234,13 @@
 
 ### 配置 Stylelint
 
-CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一致的编码风格
+`CSS` 代码检查器，帮助开发者规避 `CSS` 代码中的错误并保持一致的编码风格
 
 官网：<https://www.stylelint.com.cn/>
 
 1. 安装
 
-   - VSCode 安装插件 `stylelint-plus`
+   - `VSCode` 中安装插件 `stylelint-plus`
 
      在`settings.json`中进行相关配置
 
@@ -248,6 +296,8 @@ CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一�
      # ✨stylelint-config-prettier 禁用所有与格式相关的 Stylelint 规则，解决 prettier 与 stylelint 规则冲突，确保将其放在 extends 队列最后，这样它将覆盖其他配置
      # https://www.npmjs.com/package/stylelint-config-prettier
      ```
+
+     
 
 2. 生成配置文件
 
@@ -447,7 +497,7 @@ CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一�
 
    在根目录下创建`.prettierrc.js`配置文件及`.prettierignore`忽略文件
 
-   - `.prettierrc.js`
+   - `.prettierrc.js` 
 
      ```js
      //此处的规则供参考，其中多半其实都是默认值，可以根据个人习惯改写
@@ -513,7 +563,7 @@ CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一�
      }
      ```
 
-#### 解决和 ESlint 的冲突
+#### 解决和 `ESlint` 的冲突
 
 1. 安装 `eslint-config-prettier` 插件
 
@@ -526,7 +576,7 @@ CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一�
 
    ```js
    extends: [
-       'plugin:prettier/recommended', // eslint-plugin-prettier，即eslint使用pretter规则来格式化代码
+       'plugin:prettier/recommended', // eslint-plugin-prettier，即 eslint 使用 pretter 规则来格式化代码
        'prettier', // eslint-config-prettier, 必须放在最后
    ],
    ```
@@ -535,9 +585,9 @@ CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一�
 
 #### git hooks 👀
 
-- <https://github.com/typicode/husky>
+- https://github.com/typicode/husky
 
-- <https://www.npmjs.com/package/husky>
+- https://www.npmjs.com/package/husky
 
   ```text
   可以设置在 git 提交之前执行一次格式化( pre-commit hook )，这样我们仓库里的代码就都是格式化好的了
@@ -613,6 +663,7 @@ CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一�
      //  我试了，还需要安装2个插件 @commitlint/cli @commitlint/config-conventional
      ```
 
+
 ### 配置 ESlint
 
 `JavaScript` 代码检查 + 代码格式化
@@ -623,21 +674,21 @@ CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一�
 
 1. 安装
 
-   1. 在 VSCode 安装`ESlint`、`Prettier - Code formatter`、`Prettier ESlint`插件
+   1. 在 `VSCode` 安装`ESlint`、`Prettier - Code formatter`、`Prettier ESlint`插件
 
    2. 安装依赖
 
-      - [eslint：](https://link.juejin.cn?target=https%3A%2F%2Fcn.eslint.org%2F) JavaScript 和 JSX 检查工具
+      - [eslint：](https://link.juejin.cn?target=https%3A%2F%2Fcn.eslint.org%2F) `JavaScript` 和 `JSX` 检查工具
 
-        [eslint-plugin-import：](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fbenmosher%2Feslint-plugin-import) ES2015 +（ES6 +）导入/导出语法的检查
+        [eslint-plugin-import：](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fbenmosher%2Feslint-plugin-import) `ES2015 +（ES6 +）`导入/导出语法的检查
 
-        [babel-eslint：](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fbabel%2Fbabel-eslint) 使 eslint 支持有效的 babel 代码
+        [babel-eslint：](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fbabel%2Fbabel-eslint) 使 `ESlint` 支持有效的 `babel` 代码
 
-        [eslint-config-airbnb-base：](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fairbnb%2Fjavascript) 目前比较流行的 JavaScript 代码规范, react 项目可下载 [eslint-config-airbnb](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fairbnb%2Fjavascript%2Ftree%2Fmaster%2Fpackages%2Feslint-config-airbnb)
+        [eslint-config-airbnb-base：](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fairbnb%2Fjavascript) 目前比较流行的 `JavaScript` 代码规范,  `React` 项目可下载 [eslint-config-airbnb](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fairbnb%2Fjavascript%2Ftree%2Fmaster%2Fpackages%2Feslint-config-airbnb)
 
-        [eslint-plugin-vue：](https://link.juejin.cn?target=https%3A%2F%2Feslint.vuejs.org%2F) 使用 ESLint 检查 `.vue文件` 的 `<template>` 和 `<script>`
+        [eslint-plugin-vue：](https://link.juejin.cn?target=https%3A%2F%2Feslint.vuejs.org%2F) 使用 `ESLint` 检查 `.vue文件` 的 `<template>` 和 `<script>`
 
-        [eslint-config-prettier：](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fprettier%2Feslint-config-prettier) 禁用所有与格式相关的 eslint 规则，解决 prettier 与 eslint 规则冲突，确保将其放在 `extends` 队列最后，这样它将覆盖其他配置
+        [eslint-config-prettier：](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fprettier%2Feslint-config-prettier) 禁用所有与格式相关的 `ESlint` 规则，解决 `Prettier` 与 `ESlint` 规则冲突，确保将其放在 `extends` 队列最后，这样它将覆盖其他配置
 
         [eslint-plugin-prettier：](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fprettier%2Feslint-plugin-prettier) 基于 `prettier` 代码风格的 `eslint` 规则
 
@@ -731,10 +782,10 @@ CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一�
              eqeqeq: [2, 'always'], // 要求使用 === 和 !==
              // "semi": [2, "never"],//语句强制分号结尾
              '@typescript-eslint/no-explicit-any': 'off', // FIXME
-             'vue/multi-word-component-names': 'off', // FIXME vue组件模板名称
+             'vue/multi-word-component-names': 'off', // FIXME vue 组件模板名称
+             'no-console': 'off', // 关闭 console 报错
            },
          }
-         
          ```
 
          `.eslintignore`
@@ -746,11 +797,13 @@ CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一�
          /docs/**
          ```
 
+         
+
 3. 配置项 `.vscode/settings.json`
 
    - 待校验的文件类型属于 `eslint.probe`，且 `ESlint` 配置文件中**没有引入**相应的插件，那么 probe（探测） 失败
 
-     - 例如开发`Vue` ，需要在 `"eslint.probe"`  中添加 `["html", "vue"]`，在项目中安装 `eslint-plugin-vue, eslint-plugin-html` ，这样才会在 `.vue` 单文件中开启 `ESlint` 检测
+     - 例如开发` Vue` ，需要在 `"eslint.probe"`  中添加 `["html", "vue"]`，在项目中安装 `eslint-plugin-vue, eslint-plugin-html` ，这样才会在 `.vue` 单文件中开启 `ESlint` 检测
 
        ```json
        // .vscode/settings.json
@@ -827,7 +880,7 @@ CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一�
 
 4. 使用
 
-   `npx eslint --ext .vue,.js,.jsx,.ts,.tsx src --fix`
+   `npx eslint --ext .vue,.js,.jsx,.ts,.tsx src --fix `
 
    - `package.json` 中添加脚本
 
@@ -842,13 +895,13 @@ CSS 代码检查器，帮助开发者规避 CSS 代码中的错误并保持一�
 
    - `/* eslint-disable no-eval */` 放在 `.js` 文件中的任何代码之前，这将禁用整个文件的 `no-eval`
 
-#### vue3+typescript
+#### `Vue3+TypeScript`
 
-<https://eslint.vuejs.org/>
+https://eslint.vuejs.org/
 
-eslint配置文件`.eslintrc.js`没有对vue文件做解析，只对ts文件进行了解析配置
+`ESlint` 配置文件`.eslintrc.js`没有对 `Vue`文件做解析，只对 `TS`文件进行了解析配置
 
-1. 安装 Vue 解析依赖包
+1. 安装 `Vue` 解析依赖包
 
    ```sh
    npm install eslint-plugin-vue vue-eslint-parser --save-dev
@@ -975,6 +1028,7 @@ eslint配置文件`.eslintrc.js`没有对vue文件做解析，只对ts文件进�
 
 - 运行 `npm run dev`
 
+
 ## 基础集成
 
 ### 集成 Sass
@@ -1019,6 +1073,8 @@ CSS 预处理器
 
   ```ts
   import '@/assets/styles/scss/index.scss'
+  // index.scss
+  // @forward './variables';
   ```
 
 - 使用
@@ -1029,7 +1085,7 @@ CSS 预处理器
     <div class="box">use sass</div>
   </template>
   
-  <style lang="scss" module>
+  <style lang="scss" scoped>
   @media (width >= 1024px) {
     .box {
       color: $d-color-mdred;
@@ -1040,7 +1096,7 @@ CSS 预处理器
 
 ### 集成 UnoCSS
 
-文档：<https://unocss.dev/>
+文档：https://unocss.dev/
 
 #### 安装 UnoCSS
 
@@ -1082,6 +1138,7 @@ CSS 预处理器
 
    ```ts
    // uno.config.ts
+   // presets rules variants shortcuts theme transformers
    import {
      defineConfig,
      presetAttributify,
@@ -1122,7 +1179,7 @@ CSS 预处理器
 
 #### ESLint 中集成 UnoCSS
 
-<https://github.com/antfu/eslint-config>
+https://github.com/antfu/eslint-config
 
 1. 安装
 
@@ -1196,9 +1253,10 @@ CSS 预处理器
    # Tailwind
    import '@unocss/reset/tailwind.css'
    
-   # Tailwind compat 
+   # Tailwind compat	
    import '@unocss/reset/tailwind-compat.css'
    ```
+
 
 #### 使用
 
@@ -1251,6 +1309,86 @@ CSS 预处理器
    }
    ```
 
+
+
+#### 自定义预设
+
+1. 编写预设
+
+   ```ts
+   // custom-preset.ts
+   // shortcuts rules theme presets  variants transformers preflights
+   import { Preset } from 'unocss'
+   
+   export default function myPreset(options: {}): Preset {
+     return {
+       name: 'custom-preset',
+       shortcuts: [
+           {
+             btn: 'py-2 px-4 font-semibold rounded-lg shadow-md',
+           },
+           // dynamic shortcuts
+           [/^btn-(.*)$/, ([, c]) => `bg-${c}-400 text-${c}-100 py-2 px-4 rounded-lg`],
+         ],
+       rules: [
+         [/^m-([\.\d]+)$/, ([_, num]) => ({ margin: `${num}px` })],
+         [/^w-(\d+)$/, ([, d]: any) => ({ width: `${d / 4}rem` })],
+         [/^h-(\d+)$/, ([, d]: any) => ({ height: `${d / 4}rem` })],
+       ],
+       theme: {
+         breakpoints: {
+           sm: '640px',
+           md: '768px',
+           lg: '1024px',
+           xl: '1280px',
+           '2xl': '1536px',
+         },
+       },
+       variants: [
+         // ...
+       ],
+       // 它支持您在根配置中拥有的大多数配置
+     }
+   }
+   ```
+   
+2. 引入预设
+
+   ```ts
+   // unocss.config.ts
+   import { defineConfig } from 'unocss'
+   import customPreset from './custom-preset'
+   
+   export default defineConfig({
+     presets: [
+       customPreset({})
+     ]
+   })
+   ```
+
+#### Rem to px
+
+- 安装依赖包
+
+  ```sh
+  npm install @unocss/preset-rem-to-px -D
+  ```
+
+- 配置
+
+  ```ts
+  // uno.config.ts
+  import { defineConfig } from 'unocss'
+  import presetRemToPx from '@unocss/preset-rem-to-px'
+  
+  export default defineConfig({
+    presets: [
+      presetRemToPx()
+    ]
+  })
+  ```
+
+
 ### 按需加载
 
 - 安装依赖包
@@ -1273,6 +1411,7 @@ CSS 预处理器
   ```
 
 - 使用
+
 
 ### 使用 SVG
 
@@ -1309,6 +1448,7 @@ CSS 预处理器
     <MyIcon />
   </template>
   ```
+
 
 #### 用 vite-plugin-svg-icons ✨
 
@@ -1365,9 +1505,9 @@ CSS 预处理器
 
 ##### 3 引入注册脚本
 
-- 在 main.ts 中引入注册脚本 `import "virtual:svg-icons-register"`
+- 在 `main.ts` 中引入注册脚本 `import "virtual:svg-icons-register"`
 
-- 如果报以下错误有可能是幽灵依赖没有安装成功，可以手动安装一下 fast-glob 包
+- 如果报以下错误有可能是幽灵依赖没有安装成功，可以手动安装一下 `fast-glob` 包 
 
   ![image-20230426112210491](https://oss.danielhub.top/md_pic/image-20230426112210491.png)
 
@@ -1379,11 +1519,31 @@ CSS 预处理器
 
   ```vue
   // @/components/SvgIcon/index.vue
+  <script setup lang="ts">
+  import { computed } from 'vue'
+  import { isExternal } from '@/utils/methods'
+  
+  const props = defineProps<{ iconName: string; className?: string }>()
+  // 是否是带协议的图片链接
+  const isExt = computed(() => isExternal(props.iconName ?? ''))
+  // 拼接成 symbolId 在 loader 配置中指定了 symbolId 格式 icon-图标名称
+  const svgName = computed(() => `#icon-${props.iconName}`)
+  // 添加类名 props.className 外部传入自定义类名
+  const svgClass = computed(() =>
+    props.className !== null ? `svg-icon ${props.className}` : 'svg-icon'
+  )
+  // 如果 iconName 是带协议的图标链接 则通过 style css属性方式渲染
+  const styleExternalIcon = computed(() => ({
+    mask: `url(${props.iconName}) no-repeat 50% 50%`,
+    '-webkit-mask': `url(${props.iconName}) no-repeat 50% 50%`,
+  }))
+  </script>
+  
   <template>
-    <!-- 如果 iconName 是带协议的图标链接 则通过 style 属性方式渲染-->
+    <!-- 如果 iconName 是带协议的图标链接 则通过 style 属性方式渲染 -->
     <div
-      class="svg-icon svg-external-icon"
       v-if="isExt"
+      class="svg-icon svg-external-icon"
       :style="styleExternalIcon"
       v-bind="$attrs"
     ></div>
@@ -1392,37 +1552,20 @@ CSS 预处理器
       <use :xlink:href="svgName" />
     </svg>
   </template>
-  <script setup lang="ts">
-  import { isExternal } from "@/utils/methods";
-  import { computed } from "vue";
   
-  const props = defineProps<{ iconName: string; className?: string }>();
-  // 是否是带协议的图片链接
-  const isExt = computed(() => isExternal(props.iconName || ""));
-  // 拼接成 symbolId 在 loader 配置中指定了 symbolId 格式 icon-图标名称
-  const svgName = computed(() => `#icon-${props.iconName}`);
-  // 添加类名 props.className外部传入自定义类名
-  const svgClass = computed(() =>
-    props.className ? `svg-icon ${props.className}` : "svg-icon"
-  );
-  // 如果 iconName 是带协议的图标链接 则通过 style css属性方式渲染
-  const styleExternalIcon = computed(() => ({
-    mask: `url(${props.iconName}) no-repeat 50% 50%`,
-    "-webkit-mask": `url(${props.iconName}) no-repeat 50% 50%`,
-  }));
-  </script>
   <style lang="scss" scoped>
   .svg-icon {
+    overflow: hidden;
     width: 1em;
     height: 1em;
     vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
+    fill: currentcolor;
   }
+  
   .svg-external-icon {
-    background-color: currentColor;
-    mask-size: cover !important;
     display: inline-block;
+    background-color: currentcolor;
+    mask-size: cover !important;
   }
   </style>
   ```
@@ -1511,7 +1654,7 @@ CSS 预处理器
      }
      ```
 
-   - 在`package.json` 中添加脚本
+   - 在` package.json` 中添加脚本
 
      ```json
       "scripts": {
@@ -1524,3 +1667,337 @@ CSS 预处理器
    - 执行 `npm run svgo` 进行压缩
 
      ![svgo](https://oss.danielhub.top/md_pic/911b7cf524e2485fa57c73692aae2826~tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp)
+
+### 集成 `Axios`
+
+1. 安装
+
+   ```sh
+   npm install axios -D
+   ```
+
+2. 简单使用
+
+   ```ts
+   import axios from "axios";
+   axios.get('/user', {
+       params: {
+         ID: 12345
+       }
+     })
+     .then( response => {})
+   ```
+
+#### 封装 Axios
+
+- 目录
+
+  ```
+  vue-lite
+  └── src					# 源码目录
+  	└── api				# 接口 API
+  	    ├── module	     # 各模块请求
+  	    │   ├── demo.ts  
+  	    │   └── user.ts
+  	    ├── index.ts     # 导出各模块请求
+  	    └── request.ts   # 封装 axios
+  ```
+
+1. `request.ts`
+
+   ```ts
+   import axios from 'axios'
+   
+   // vue-cli 用 process.env.VUE_APP_DEMO_API
+   // vite 用 import.meta..env.VUE_APP_DEMO_API
+   // 'https://api.zhengdr.com/api/v1/'
+   axios.defaults.baseURL = import.meta.env.VUE_APP_DEMO_API
+   axios.defaults.baseURL = ''
+   
+   // request 拦截器
+   axios.interceptors.request.use(
+     (config) => {
+       return config
+     },
+     async (error) => {
+       return await Promise.reject(error)
+     }
+   )
+   
+   // response 拦截器
+   axios.interceptors.response.use(
+     (response) => {
+       return response
+     },
+     async (error: any) => {
+       // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+       if (error.response) {
+         if (error.response.status === 404) {
+           // ElNotification.error({
+           // 	title: '请求错误',
+           // 	message: "Status:404，正在请求不存在的服务器记录！"
+           // });
+         }
+       }
+       return await Promise.reject(error.response)
+     }
+   )
+   
+   const http = {
+     /** get 请求
+      * @param  {接口地址} url
+      * @param  {请求参数} params
+      * @param  {参数} config
+      */
+     async get(url, params = {}, config = {}) {
+       return await new Promise((resolve, reject) => {
+         axios({
+           method: 'get',
+           url,
+           params,
+           ...config,
+         })
+           .then((response) => {
+             resolve(response.data)
+           })
+           .catch((error) => {
+             reject(error)
+           })
+       })
+     },
+   
+     /** post 请求
+      * @param  {接口地址} url
+      * @param  {请求参数} data
+      * @param  {参数} config
+      */
+     async post(url, data = {}, config = {}) {
+       return await new Promise((resolve, reject) => {
+         axios({
+           method: 'post',
+           url,
+           data,
+           ...config,
+         })
+           .then((response) => {
+             resolve(response.data)
+           })
+           .catch((error) => {
+             reject(error)
+           })
+       })
+     },
+   
+     /** put 请求
+      * @param  {接口地址} url
+      * @param  {请求参数} data
+      * @param  {参数} config
+      */
+     async put(url, data = {}, config = {}) {
+       return await new Promise((resolve, reject) => {
+         axios({
+           method: 'put',
+           url,
+           data,
+           ...config,
+         })
+           .then((response) => {
+             resolve(response.data)
+           })
+           .catch((error) => {
+             reject(error)
+           })
+       })
+     },
+   
+     /** patch 请求
+      * @param  {接口地址} url
+      * @param  {请求参数} data
+      * @param  {参数} config
+      */
+     async patch(url, data = {}, config = {}) {
+       return await new Promise((resolve, reject) => {
+         axios({
+           method: 'patch',
+           url,
+           data,
+           ...config,
+         })
+           .then((response) => {
+             resolve(response.data)
+           })
+           .catch((error) => {
+             reject(error)
+           })
+       })
+     },
+   
+     /** delete 请求
+      * @param  {接口地址} url
+      * @param  {请求参数} data
+      * @param  {参数} config
+      */
+     async delete(url, data = {}, config = {}) {
+       return await new Promise((resolve, reject) => {
+         axios({
+           method: 'delete',
+           url,
+           data,
+           ...config,
+         })
+           .then((response) => {
+             resolve(response.data)
+           })
+           .catch((error) => {
+             reject(error)
+           })
+       })
+     },
+   
+     /** jsonp 请求
+      * @param  {接口地址} url
+      * @param  {JSONP回调函数名称} name
+      */
+     async jsonp(url, name = 'jsonp') {
+       return await new Promise((resolve) => {
+         const script = document.createElement('script')
+         const _id = `jsonp${Math.ceil(Math.random() * 1000000)}`
+         script.id = _id
+         script.type = 'text/javascript'
+         script.src = url
+         window[name] = (response) => {
+           resolve(response)
+           document.getElementsByTagName('head')[0].removeChild(script)
+           try {
+             // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+             delete window[name]
+           } catch (e) {
+             window[name] = undefined
+           }
+         }
+         document.getElementsByTagName('head')[0].appendChild(script)
+       })
+     },
+   }
+   export default http
+   ```
+
+2. `demo.ts`
+
+   ```ts
+   import http from '../request'
+   
+   export default {
+     get: {
+       url: `${import.meta.env.VUE_APP_DEMO_API}/demo/ver`,
+       name: 'Get 方法演示',
+       async get(params = {}) {
+         return await http.get(this.url, params)
+       },
+     },
+     post: {
+       url: `/demo/post`,
+       name: 'Post 方法演示',
+       async post(data = {}) {
+         return await http.post(this.url, data, {})
+       },
+     },
+     findPageWrap: {
+       url: `https://api.zhengdr.com/api/v1//certificate/findPageWrap`,
+       name: '获取证书列表',
+       async post(
+         data = {
+           pageNum: 1,
+           pageSize: 20,
+           params: {},
+         }
+       ) {
+         return await http.post(this.url, data)
+       },
+     },
+   }
+   ```
+
+   ```ts
+   import http from '../request'
+   
+   export const get = {
+     url: `${import.meta.env.VUE_APP_DEMO_API}/demo/ver`,
+     name: 'Get 方法演示',
+     async get(params = {}) {
+       return await http.get(this.url, params)
+     },
+   }
+   
+   export const post = {
+     url: `/demo/post`,
+     name: 'Post 方法演示',
+     async post(data = {}) {
+       return await http.post(this.url, data, {})
+     },
+   }
+   
+   export const findPageWrap = {
+     url: `https://api.zhengdr.com/api/v1//certificate/findPageWrap`,
+     name: '获取证书列表',
+     async post(
+       data = {
+         pageNum: 1,
+         pageSize: 20,
+         params: {},
+       }
+     ) {
+       return await http.post(this.url, data)
+     },
+   }
+   ```
+
+3. `index.ts`
+
+   ```ts
+   import demo from './module/demo'
+   
+   // import user from "./module/user"; // 默认导出
+   // import * as user from "./module/user"; // 常量导出
+   
+   export default {
+     demo,
+   }
+   ```
+
+4. 使用
+
+   - 直接使用
+
+     ```vue
+     // Demo.vue
+     <script lang="ts">
+     import api from '@/api'
+     methods: {
+         async listProduct() {
+           let res = await api.demo.post();
+           console.log("🚀 ~ file: HomePage.vue:180 ~ listProduct ~ res2:", res);
+           this.portfolioData = res.data
+         },
+       },
+     </script>
+     ```
+
+   - 作为全局属性使用
+
+     ```ts
+     import api from './api'
+     app.config.globalProperties.$api = api // 挂载所有模块的请求
+     ```
+
+     ```vue
+     <script lang="ts" setup>
+     import { getCurrentInstance } from 'vue'
+     
+     const { $api } = getCurrentInstance()?.appContext.config.globalProperties
+     async function fetchData() {
+       const res = await $api.demo.findPageWrap.post()
+       console.log('🚀 ~ file: AboutView.vue:7 ~ fetchData ~ res:', res)
+     }
+     </script>
+     ```

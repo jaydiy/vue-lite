@@ -8,6 +8,8 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
+import presetRemToPx from '@unocss/preset-rem-to-px'
+import customPreset from './custom-preset'
 
 export default defineConfig({
   presets: [
@@ -24,6 +26,8 @@ export default defineConfig({
         mono: 'DM Mono',
       },
     }),
+    presetRemToPx(),
+    customPreset({}),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
 })
